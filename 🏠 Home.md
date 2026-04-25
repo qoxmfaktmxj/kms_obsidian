@@ -63,3 +63,45 @@ SORT file.mtime DESC
 ```
 
 > ⚠️ 위 표는 **Dataview 플러그인 설치 후** 자동으로 채워집니다. 설치 전엔 코드 블록으로 보여요.
+
+# Repo Operating Dashboard
+
+## Active Projects
+
+```dataview
+TABLE lane, maturity, priority, openclaw_mode, next_action, last_reviewed
+FROM "01_Projects"
+WHERE type = "project"
+SORT priority ASC, last_reviewed ASC
+```
+
+## OpenClaw Control
+
+- [[08_Automation/openclaw/Runbook]]
+- [[08_Automation/openclaw/Permission-Policy]]
+- [[08_Automation/openclaw/Command-Catalog]]
+- [[08_Automation/openclaw/Execution-Log]]
+- [[08_Automation/openclaw/Repo-Sync-Report]]
+
+## LLM Wiki
+
+- [[07_LLM_Wiki/index]]
+- [[07_LLM_Wiki/_system/contradictions]]
+- [[07_LLM_Wiki/_system/stale-pages]]
+
+## Product Projects
+
+- [[01_Projects/Products/VibeGrid/VibeGrid]]
+- [[01_Projects/Products/VibeHR/VibeHR]]
+- [[01_Projects/Products/VibeRec/VibeRec]]
+- [[01_Projects/Products/TripCart/TripCart]]
+
+## Work / Tool Projects
+
+- [[01_Projects/Work/Jarvis/Jarvis]]
+- [[01_Projects/Work/EHR-Harness-Plugin/EHR-Harness-Plugin]]
+
+## Public Surface
+
+- [[01_Projects/Public/Blog/Blog]]
+- [[01_Projects/Public/Landing/Landing]]
