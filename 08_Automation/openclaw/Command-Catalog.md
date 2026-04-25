@@ -10,7 +10,7 @@
 권한:
 - read_only
 - clean repo에 한해 pull 허용
-- push 금지
+- 기본 push 금지. 단, 석이가 명시 승인한 branch push는 허용
 
 ---
 
@@ -69,7 +69,8 @@
 
 조건:
 - task에 approved: true 필요
-- repo mode가 branch_pr이어야 함
+- repo mode가 branch_pr 또는 명시 승인된 main/master mode여야 함
+- main/master 직접 작업은 석이의 명시 승인 필요
 
 작업:
 - branch 생성
@@ -82,7 +83,7 @@
 - Execution-Log.md
 
 금지:
-- main/master push
+- main/master push/direct work unless 석이가 명시 승인
 - production secret 접근
 - DB write
 
@@ -136,3 +137,29 @@
 ## Prompt Library
 
 - [[08_Automation/openclaw/Prompt-Library]]
+
+
+---
+
+## /kms:pending-main-report
+
+목표:
+- main/master에 아직 반영되지 않은 변경사항을 찾아 석이에게 보고한다.
+
+확인:
+- local dirty changes
+- unpushed branch commits
+- branch without upstream
+- PR/merge 필요 branch
+- main/master와 divergence
+
+출력:
+- repo명
+- branch
+- HEAD
+- dirty 여부
+- ahead/behind
+- 필요한 조치
+
+권한:
+- read_only

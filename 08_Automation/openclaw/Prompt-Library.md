@@ -131,7 +131,7 @@ task id:
 1. `kms_obsidian`의 해당 프로젝트 `OpenClaw-Queue.md`에서 task를 찾는다.
 2. task에 `approved: true`가 없으면 중단한다.
 3. 해당 repo의 `openclaw_mode`가 `branch_pr`이 아니면 중단한다.
-4. main/master에서 직접 수정하지 않는다.
+4. 기본은 main/master에서 직접 수정하지 않는다. 단, 석이가 명시적으로 main/master 작업을 승인하면 허용한다.
 5. 작업 branch를 만든다.
 
 branch 이름:
@@ -143,7 +143,7 @@ openclaw/<task_id-kebab-case>
 9. 가능한 테스트를 실행한다.
 10. 실패하면 실패 내용을 기록하고 멈춘다.
 11. 성공하면 diff summary를 작성한다.
-12. push하지 않는다.
+12. 기본은 push하지 않는다. 단, 석이가 명시적으로 push/merge까지 승인하면 수행할 수 있다.
 13. `kms_obsidian/08_Automation/openclaw/Execution-Log.md`에 결과를 기록한다.
 14. 해당 Project Note와 Weekly-Review를 갱신한다.
 
@@ -151,7 +151,7 @@ openclaw/<task_id-kebab-case>
 - git reset --hard
 - git clean -fd
 - rm -rf
-- git push
+- git push (단, 석이 명시 승인 시 허용)
 
 출력:
 # Task Execution Report
@@ -191,7 +191,7 @@ https://github.com/qoxmfaktmxj/qoxmfaktmxj.github.io
 2. 있으면 fetch.
 3. clean이면 pull --ff-only.
 4. dirty이면 pull하지 않고 중단 보고.
-5. main/master 직접 수정 금지.
+5. 기본은 main/master 직접 수정 금지. 단, 석이가 명시 승인하면 가능.
 6. branch 생성:
    chore/star-repo-deep-dive-automation-$(date +%Y%m%d)
 
@@ -219,7 +219,7 @@ https://github.com/qoxmfaktmxj/qoxmfaktmxj.github.io
     - jarvis
     - ehr-harness-plugin
     - tripcart
-12. push하지 않는다.
+12. 기본은 push하지 않는다. 단, 석이가 명시적으로 push/merge까지 승인하면 수행할 수 있다.
 13. commit까지만 한다.
 14. 최종 보고서에 push 명령을 제안한다.
 
@@ -407,3 +407,31 @@ BASE_DIR="$HOME/dev/qoxmfaktmxj"
 | tripcart | branch_pr |
 | qoxmfaktmxj.github.io | branch_pr |
 | landing-minseok91 | read_only |
+
+
+## 8. Main/Master 명시 승인 운영 원칙
+
+기본값은 branch 기반 안전 작업이다.
+하지만 석이가 명시하면 OpenClaw는 main/master 직접 작업, push, merge까지 수행할 수 있다.
+
+필수 조건:
+
+1. 석이의 명시 승인이 있어야 한다.
+2. 작업 전 현재 branch, dirty 상태, upstream 상태를 확인한다.
+3. 작업 후 테스트 또는 최소 검증을 수행한다.
+4. main/master에 반영되지 않은 변경사항이 있으면 최종 보고에 반드시 포함한다.
+5. 보고에는 repo, branch, commit, 남은 조치, 실행할 push/merge 명령을 포함한다.
+6. secret 출력, destructive command, production data write 금지는 유지한다.
+
+보고 예시:
+
+```markdown
+## Main 반영 상태
+
+- repo: qoxmfaktmxj.github.io
+- branch: chore/star-repo-deep-dive-automation-20260425
+- main 반영 여부: 미반영
+- 필요한 조치: push 후 PR merge 또는 명시 승인 시 main merge
+- 명령:
+  git push -u origin chore/star-repo-deep-dive-automation-20260425
+```

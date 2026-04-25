@@ -4,7 +4,7 @@
 
 - 이 파일에 있는 작업만 수행한다.
 - `approved: true`가 없는 작업은 코드 수정하지 않는다.
-- main/master 직접 push 금지.
+- 기본은 main/master 직접 push 금지. 단, 석이가 명시적으로 main/master 작업/push/merge를 승인하면 허용한다. 미반영 변경사항은 반드시 보고한다.
 - 작업 전 plan 작성.
 - 작업 후 Execution-Log에 결과 기록.
 
