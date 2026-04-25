@@ -38,3 +38,9 @@
 - Validation:
   - `python3 -m py_compile scripts/star_repo_deep_dive.py`: passed
   - `python3 scripts/star_repo_deep_dive.py --dry-run --force`: passed
+
+## Obsidian 연결
+
+- Created: `03_Resources/GitHub-Repo-Deep-Dives/index.md`
+- 목적: 블로그에 생성된 GitHub 50k+ repo 분석 결과를 Obsidian에서 다시 패턴/적용 아이디어로 재가공한다.
+- Cron note: GitHub Actions cron은 UTC 기준이며, `10 22 * * *`는 KST 오전 7시 10분 근처 실행 의도다. workflow는 매일 실행되고 Python state가 48시간 중복 생성을 막는다.
