@@ -26,3 +26,7 @@
 2. 현재 branch와 diff 기록
 3. Incident-Log.md 기록
 4. 사람에게 보고
+
+## Prompt Library
+
+- [[08_Automation/openclaw/Prompt-Library]]

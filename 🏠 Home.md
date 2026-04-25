@@ -82,6 +82,7 @@ SORT priority ASC, last_reviewed ASC
 - [[08_Automation/openclaw/Command-Catalog]]
 - [[08_Automation/openclaw/Execution-Log]]
 - [[08_Automation/openclaw/Repo-Sync-Report]]
+- [[08_Automation/openclaw/Prompt-Library]]
 
 ## LLM Wiki
 

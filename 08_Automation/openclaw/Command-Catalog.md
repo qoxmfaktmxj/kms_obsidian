@@ -132,3 +132,7 @@
 
 권한:
 - branch_pr
+
+## Prompt Library
+
+- [[08_Automation/openclaw/Prompt-Library]]
